@@ -1,0 +1,99 @@
+/* Scroll Header Pro */
+/*classes and IDs (explanation)
+
+Heading Container
+.page-header	-	Default container class. If custom class is added (in metatab options), class .page-header will be substituted.
+.scroll-header	-	Class needed for ScrollSpy functionality. If "Disable ScrollSpy usage" is checked, this class will be removed.
+.ss-heading-container	-	Empty class for your customisation.
+
+Heading
+.zmb	-	removes bottom margin
+.ss-heading	-	Empty class for your customisation.
+.ssh, .ssh1, .ssh2 etc.	-	Unique class for every heading. Used for custom heading font.
+.fittext	-	class used with FitText (if enabled).
+id="ssID, ssID1, ssID2..."	-	Unique ID tag of every heading.
+.char1, .word1, .line1, .char2, word2, etc.	-	classes for styling <span> elements, if lettering.js is activated.
+*/
+
+//For customisation of container and heading
+.ss-container{}
+.ss-heading{}
+//fittext class
+.fittext{
+	display: block;
+	width: 99%;
+	margin: 0 auto;
+	text-align: center;
+}
+//Spynav fix
+.spynav_mix{
+	padding-left:12px !important;
+	.box-shadow(inset 0 0 0);
+	color: @textColorAlt;
+	border-right: 1px solid darken(@baseContrastMore, 10);
+	border-top-color: darken(@baseContrastMore, 10);
+}
+.spynav .nav > li.active > a{
+	.buttonBackground(@baseContrastSlight, @baseContrastMore);
+	.border-radius(0px);
+	border-left: 1px solid rgba(255,255,255,.4);
+	.spynav_mix;
+}
+.spynav .nav > li.active > a:hover{
+	.buttonBackground(darken(@baseContrastMore, 5), @baseContrast);
+	border-left: 1px solid darken(@baseContrastMore, 10);
+	.spynav_mix;
+}
+//lettering.js example
+/*
+h2 span:hover {
+	top: 4px;
+}
+.lettering (@sscolor,@sposition){
+	color: @sscolor;
+	display: inline-block;
+	position: relative;
+	min-width: 10px;
+	top: @sposition;
+}
+.char1, .word1, .line1,
+.char5, .word5, .line5,
+.char9, .word9, .line9,
+.char13, .word13, .line13,
+.char17, .word17, .line17,
+.char21, .word21, .line21,
+.char25, .word25, .line25
+{
+.lettering(green,1px);
+}
+.char2, .word2, .line2,
+.char6, .word6, .line6,
+.char10, .word10, .line10,
+.char14, .word14, .line14,
+.char18, .word18, .line18,
+.char22, .word22, .line22,
+.char26, .word26, .line26
+{
+.lettering(orange,-1px);
+}
+.char3, .word3, .line3,
+.char7, .word7, .line7,
+.char11, .word11, .line11,
+.char15, .word15, .line15,
+.char19, .word19, .line19,
+.char23, .word23, .line23,
+.char27, .word27, .line27
+{
+.lettering(red,2px);
+}
+.char4, .word4, .line4,
+.char8, .word8, .line8,
+.char12, .word12, .line12,
+.char16, .word16, .line16,
+.char20, .word20, .line20,
+.char24, .word24, .line24,
+.char28, .word28, .line28
+{
+.lettering(black,-2px);
+}
+*/
