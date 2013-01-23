@@ -19,7 +19,7 @@ class LUDHeader extends PageLinesSection {
 
 	function section_head($clone_id ){
 		if (ploption('sh_font', $this->oset)) {
-			echo load_custom_font( ploption('sh_font', $this->oset), ".shh$clone_id");
+			echo load_custom_font( ploption('sh_font', $this->oset), ".sh$clone_id");
 		}
 		//FitText		
 		if (ploption('sh_fit', $this->oset)) {
@@ -30,7 +30,7 @@ class LUDHeader extends PageLinesSection {
 			?>			
 			<script type="text/javascript">
 				jQuery(document).ready(function(){ 
-					jQuery('<?php echo $selector;?> .fittext').fitText(
+					jQuery('<?php echo $selector;?> .sh-fittext').fitText(
 						"<?php echo $sh_fit_size; ?>",
 						{
 							minFontSize: '<?php echo $sh_minfontsize; ?>',
@@ -56,27 +56,24 @@ class LUDHeader extends PageLinesSection {
 	}
 	
 	function section_template( $clone_id ) {
-		$sh_heading_tag = ( ploption('sh_heading_tag', $this->oset) ) ? ploption('sh_heading_tag', $this->oset) : 2 ;	
+		$sh_heading_tag = ( in_array( ploption('sh_heading_tag', $this->oset), array('1','2','3','4','5','6'))) ? ploption('sh_heading_tag', $this->oset) : 2 ;
 		$sh_title = ( ploption('sh_title', $this->oset) ) ? ploption('sh_title', $this->oset) : NULL;
 		$sh_header = ( ploption('sh_header', $this->oset) ) ? ploption('sh_header', $this->oset) : NULL;
 		$sh_header_small = ( ploption('sh_header_small', $this->oset) ) ? ploption('sh_header_small', $this->oset) : NULL;
 		$sh_class = ( ploption('sh_class', $this->oset) ) ? ploption('sh_class', $this->oset) : 'page-header' ;
 		$sh_hide_header = ( ploption('sh_hide_header', $this->oset) ) ? true : false ;
 		$sh_font_class = "sh$clone_id";
-		$sh_fit = 	( ploption('sh_fit', $this->oset) ) ? 'fittext' : NULL ;
+		$sh_fit = 	( ploption('sh_fit', $this->oset) ) ? 'sh-fittext' : NULL ;
 		$sh_scrollspy = ( ploption('sh_use_scrollspy', $this->oset) ) ? NULL : 'scroll-header' ;
 		$sh_heading_id = 'shID'.$clone_id;
 		//Hide heading on page.
 		if( $sh_hide_header === true){
-			printf('<div class="%s sh-heading-container" title="%s"></div>',$sh_scrollspy, $sh_title);
+			printf('<div class="%s sh-container" title="%s"></div>',$sh_scrollspy, $sh_title);
 		}
 		else{
 			//Main template
-			if(in_array($sh_heading_tag, array(1,2,3,4,5,6))) {
-				$format='<div class="%s %s sh-heading-container" title="%s"><h%d class="zmb sh-heading %s %s" id="%s">%s&nbsp;<small>%s</small></h%d></div>';
-				printf($format, $sh_class, $sh_scrollspy, $sh_title, $sh_heading_tag, $sh_font_class, $sh_fit, $sh_heading_id, $sh_header, $sh_header_small, $sh_heading_tag);		
-			}
-			//Just in case (all headings are H2)
+			$format='<div class="%s %s sh-container" title="%s"><h%d class="zmb sh-heading %s %s" id="%s">%s&nbsp;<small>%s</small></h%d></div>';
+			printf($format, $sh_class, $sh_scrollspy, $sh_title, $sh_heading_tag, $sh_font_class, $sh_fit, $sh_heading_id, $sh_header, $sh_header_small, $sh_heading_tag);		
 		}
 	}
 
@@ -226,32 +223,37 @@ class LUDHeader extends PageLinesSection {
 					)
 				)
 		);
+		//Show "Title" from section metatab options as tab header
+		global $post_ID;
+		$oset = array('post_id' => $post_ID, 'clone_id' => $settings['clone_id'], 'type' => $settings['type']);
+		$sh_name = (ploption('sh_title', $oset)) ? ploption('sh_title', $oset) : $this -> name;
+		
 		$settings = array(
 			'id' 		=> $this->id,
-			'name' 		=> $this -> get_clone_name($settings['clone_id']),
+			'name' 		=> $sh_name,
 			'icon' 		=> $this->icon,
 			'clone_id'	=> $settings['clone_id'],
 			'active'	=> $settings['active']
 		);
-		
 		register_metatab($settings, $opts);
 	}
 
 	function section_persistent(){
-		// to do
-		add_shortcode( 'scrollspy', function($atts,$content=null){
-			extract(shortcode_atts(array('title' => '' ), $atts));
-			$out = '<div class="page-header scroll-header"';
-			if (!empty($title)) $out .= ' title="'.$title.'"';
-			$out .= '><h2 class="zmb">';
-			return $out.do_shortcode($content).'</h2></div>';
-		});
-	}
-	
-	private function get_clone_name($id){
-		global $post_ID;
-		$oset = array('post_id' => $post_ID, 'clone_id' => $id, 'type' => $settings['type']);
-		$sh_name = (ploption('sh_title', $oset)) ? ploption('sh_title', $oset) : $this -> name;
-		return $sh_name;
+		
+		//Scroll Spy shortcode
+		function scrollspy_open($atts, $content = null) {
+			extract(shortcode_atts(array('class' => 'page-header', 'title' => '', 'h_tag' => '2' ), $atts));
+			$return = '<div class="'.$class.' scroll-header sh-container"';
+			if (!empty($title)) $return .= ' title="'.$title.'"';
+			$h_temp = (in_array($h_tag, array('1','2','3','4','5','6'))) ? $h_tag : '2';
+			$return .= '><h'.$h_temp.' class="zmb sh-heading">';
+			return $return.do_shortcode($content).'</h'.$h_temp.'></div>';
+		}
+		add_shortcode('scrollspy', 'scrollspy_open');
+
+		function small_header($atts, $content = null) {
+			return '&nbsp;<small>' . $content . '</small>';
+		}
+		add_shortcode('small', 'small_header');
 	}
 }
