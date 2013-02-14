@@ -4,11 +4,11 @@ Section: Scroll Header Pro
 Author: .bestrag
 Author URI: bestrag.pagelines.me
 Version: 1.0.0
-Description: Create astonishing on-page navigation headings. Works with Scrollspy or menu you choose. FitText and Lettering.js included.
+Description: Create a one page sites at breeze. This section allows you to use neat titles in front of any pagelines section on the page. It fully allows you to take control over Scrol Spy. Works with Lettering and FitText. ScrolSpy CSS fix and short code included.
 Class Name: LUDHeader
 Workswith: main, templates
 Cloning: true
-Demo: #
+Demo: demo.trampanet.net/scroll-header-pro
 */
 
 class LUDHeader extends PageLinesSection {
@@ -18,8 +18,9 @@ class LUDHeader extends PageLinesSection {
 	}
 
 	function section_head($clone_id ){
+		//Font
 		if (ploption('sh_font', $this->oset)) {
-			echo load_custom_font( ploption('sh_font', $this->oset), ".sh$clone_id");
+			echo load_custom_font( ploption('sh_font', $this->oset), "#shID$clone_id");
 		}
 		//FitText		
 		if (ploption('sh_fit', $this->oset)) {
@@ -45,13 +46,24 @@ class LUDHeader extends PageLinesSection {
 		if ($sh_lettering) {
 			$sh_lselector = '#shID'.$clone_id;
 			$sh_method = (ploption('sh_method', $this->oset)) ? (ploption('sh_method', $this->oset)) : null;
-			?>			
-			<script type="text/javascript">
-				jQuery(document).ready(function(){ 
-					jQuery('<?php echo $sh_lselector; ?>').lettering('<?php echo $sh_method; ?>');
-				});
-			</script>
-			<?php
+			if ($sh_method == 'wl') {
+				?>			
+				<script type="text/javascript">
+					jQuery(document).ready(function(){ 
+						jQuery('<?php echo $sh_lselector; ?>').lettering('words').children('span').lettering();
+					});
+				</script>
+				<?php	
+			}
+			else {
+				?>			
+				<script type="text/javascript">
+					jQuery(document).ready(function(){ 
+						jQuery('<?php echo $sh_lselector; ?>').lettering('<?php echo $sh_method; ?>');
+					});
+				</script>
+				<?php
+			}
 		}
 	}
 	
@@ -59,21 +71,21 @@ class LUDHeader extends PageLinesSection {
 		$sh_heading_tag = ( in_array( ploption('sh_heading_tag', $this->oset), array('1','2','3','4','5','6'))) ? ploption('sh_heading_tag', $this->oset) : 2 ;
 		$sh_title = ( ploption('sh_title', $this->oset) ) ? ploption('sh_title', $this->oset) : NULL;
 		$sh_header = ( ploption('sh_header', $this->oset) ) ? ploption('sh_header', $this->oset) : NULL;
-		$sh_header_small = ( ploption('sh_header_small', $this->oset) ) ? ploption('sh_header_small', $this->oset) : NULL;
+		$sh_header_small = ( ploption('sh_header_small', $this->oset) ) ? '<small>&nbsp;'.ploption('sh_header_small', $this->oset).'</small>' : NULL;
 		$sh_class = ( ploption('sh_class', $this->oset) ) ? ploption('sh_class', $this->oset) : 'page-header' ;
 		$sh_hide_header = ( ploption('sh_hide_header', $this->oset) ) ? true : false ;
-		$sh_font_class = "sh$clone_id";
 		$sh_fit = 	( ploption('sh_fit', $this->oset) ) ? 'sh-fittext' : NULL ;
 		$sh_scrollspy = ( ploption('sh_use_scrollspy', $this->oset) ) ? NULL : 'scroll-header' ;
 		$sh_heading_id = 'shID'.$clone_id;
+		
 		//Hide heading on page.
 		if( $sh_hide_header === true){
 			printf('<div class="%s sh-container" title="%s"></div>',$sh_scrollspy, $sh_title);
 		}
 		else{
 			//Main template
-			$format='<div class="%s %s sh-container" title="%s"><h%d class="zmb sh-heading %s %s" id="%s">%s&nbsp;<small>%s</small></h%d></div>';
-			printf($format, $sh_class, $sh_scrollspy, $sh_title, $sh_heading_tag, $sh_font_class, $sh_fit, $sh_heading_id, $sh_header, $sh_header_small, $sh_heading_tag);		
+			$format='<div class="%s %s sh-container" title="%s"><h%d class="sh-heading %s" id="%s">%s%s</h%d></div>';
+			printf($format, $sh_class, $sh_scrollspy, $sh_title, $sh_heading_tag, $sh_fit, $sh_heading_id, $sh_header, $sh_header_small, $sh_heading_tag);		
 		}
 	}
 
@@ -84,7 +96,7 @@ class LUDHeader extends PageLinesSection {
 				'type'		=> 	'multi_option',
 				'title' 		=> __( 'Main options', 'pagelines' ),
 				'shortexp' 		=> __( 'Parameters', 'pagelines' ),
-				'exp'			=> __( '<strong>Title</strong>	-	Title tag that is displayed in ScrollSpy navbar.<br /><strong>Heading</strong>	-	Heading text (shown on page).<br /><strong>Heading small</strong>	-	Subheading text (shown inline after heading).<br /><strong>TIP:</strong> If using FitText or Lettering.js, leave Heading Small empty.<br /><strong>Hide heading on page</strong>	-	Hide Heading and Subheading text on page.<br /><strong>Disable ScrollSpy</strong>	-	Check this option if you whant to use section clone as non-navigation heading on pages with ScrollSpy.', 'pagelines' ),
+				'exp'			=> __( '<strong>Title</strong>	-	Title tag that is displayed in ScrollSpy navbar.<br /><strong>Heading</strong>	-	Heading text (shown on page).<br /><strong>Heading small</strong>	-	Subheading text (shown inline after heading).<br /><strong>TIP:</strong> If using FitText or Lettering.js, leave Heading Small empty.<br /><strong>Hide heading on page</strong>	-	Hide Heading and Subheading text on page (use section only for on-page navigation). If you want to use section only for navigation<br /><strong>Disable ScrollSpy</strong>	-	Check this option if you whant to use section clone as non-navigation heading on pages with ScrollSpy.', 'pagelines' ),
 				'selectvalues'	=> array(
 					'sh_title' => array(
 						'type' 			=> 'text',
@@ -199,7 +211,7 @@ class LUDHeader extends PageLinesSection {
 				'type'		=> 	'multi_option',
 				'title' 		=> __( 'Lettering.js Header', 'pagelines' ),
 				'shortexp' 		=> __( 'Parameters', 'pagelines' ),
-				'exp'			=> __( '<strong>Use Lettering.js</strong>	-	Weather to use Lettering.js on page. Default false.<br /><strong>Letering.js method</strong>	-	Choose what should be wraped in span (default Letters).<br />more informations <a href="https://github.com/davatron5000/Lettering.js">here</a>', 'pagelines' ),
+				'exp'			=> __( '<strong>Use Lettering.js</strong>	-	Weather to use Lettering.js on page. Default false.<br /><strong>Letering.js method</strong>	-	Choose what should be wraped in span (default Letters).<br />more informations on <a http://letteringjs.com/">here</a>', 'pagelines' ),
 				'selectvalues'	=> array(
 					'sh_lettering' => array(
 						'type' 			=> 'check',
@@ -219,6 +231,7 @@ class LUDHeader extends PageLinesSection {
 							'letters'	=> array('name' => __( 'Letters (Default)', 'pagelines') ),
 							'words'	=> array('name' => __( 'Words', 'pagelines') ),
 							'lines'	=> array('name' => __( 'Lines', 'pagelines') ),
+							'wl'	=> array('name' => __( 'Words/letters', 'pagelines') ),
 						)
 					)
 				)
@@ -228,14 +241,14 @@ class LUDHeader extends PageLinesSection {
 		$oset = array('post_id' => $post_ID, 'clone_id' => $settings['clone_id'], 'type' => $settings['type']);
 		$sh_name = (ploption('sh_title', $oset)) ? ploption('sh_title', $oset) : $this -> name;
 		
-		$settings = array(
+		$tab_settings = array(
 			'id' 		=> $this->id,
 			'name' 		=> $sh_name,
 			'icon' 		=> $this->icon,
 			'clone_id'	=> $settings['clone_id'],
 			'active'	=> $settings['active']
 		);
-		register_metatab($settings, $opts);
+		register_metatab($tab_settings, $opts);
 	}
 
 	function section_persistent(){
