@@ -4,11 +4,11 @@ Section: Scroll Header Pro
 Author: .bestrag
 Author URI: bestrag.pagelines.me
 Version: 1.0.0
-Description: Create a one page sites at breeze. This section allows you to use neat titles in front of any pagelines section on the page. It fully allows you to take control over Scrol Spy. Works with Lettering and FitText. ScrolSpy CSS fix and short code included.
+Description: Create a one-page site in a breeze. This section allows you to create beautiful ScrollSpy-ready headings anywhere on the page. Works with Lettering and FitText. Also included: ScrollSpy CSS fix and shortcode for content.
 Class Name: LUDHeader
 Workswith: main, templates
 Cloning: true
-Demo: demo.trampanet.net/scroll-header-pro
+Demo: http://demo.trampanet.net/scroll-header-pro
 */
 
 class LUDHeader extends PageLinesSection {
@@ -96,7 +96,7 @@ class LUDHeader extends PageLinesSection {
 				'type'		=> 	'multi_option',
 				'title' 		=> __( 'Main options', 'pagelines' ),
 				'shortexp' 		=> __( 'Parameters', 'pagelines' ),
-				'exp'			=> __( '<strong>Title</strong>	-	Title tag that is displayed in ScrollSpy navbar.<br /><strong>Heading</strong>	-	Heading text (shown on page).<br /><strong>Heading small</strong>	-	Subheading text (shown inline after heading).<br /><strong>TIP:</strong> If using FitText or Lettering.js, leave Heading Small empty.<br /><strong>Hide heading on page</strong>	-	Hide Heading and Subheading text on page (use section only for on-page navigation). If you want to use section only for navigation<br /><strong>Disable ScrollSpy</strong>	-	Check this option if you whant to use section clone as non-navigation heading on pages with ScrollSpy.', 'pagelines' ),
+				'exp'			=> __( '<strong>Title</strong>	-	Title tag that is displayed in ScrollSpy navbar.<br /><strong>Heading</strong>	-	Heading text (shown on page).<br /><strong>Heading small</strong>	-	Subheading text (shown inline after heading).<br /><strong>TIP:</strong> If using FitText or Lettering.js, leave Heading Small empty.<br /><strong>Hide heading on page</strong>	-	Use this option if you want:<br /> - to preserve Scroll Spy functionality of the section clone and <br /> - to hide heading text on the page.<br /><strong>Disable ScrollSpy</strong>	-	Check this option if you want to disable Scroll Spy functionality of the section clone on pages with ScrollSpy.', 'pagelines' ),
 				'selectvalues'	=> array(
 					'sh_title' => array(
 						'type' 			=> 'text',
@@ -139,7 +139,7 @@ class LUDHeader extends PageLinesSection {
 				'type'		=> 	'multi_option',
 				'title' 		=> __( 'Style Options', 'pagelines' ),
 				'shortexp' 		=> __( 'Parameters', 'pagelines' ),
-				'exp'			=> __( '<strong>Font</strong>	-	Choose Heading font.<br /><strong>Heading HTML Tag</strong>	-	Choose from H1 -  H6 (Defalt H2).<br /><strong>Custom Heading class</strong>	-	Replace default container class (page-header) with your custom class. If you want to use .page-header AND custom class, just type: "page-header your_custom_class" (separated by space).', 'pagelines' ),
+				'exp'			=> __( '<strong>Font</strong>	-	Choose Heading font.<br /><strong>Heading HTML Tag</strong>	-	Choose from H1 -  H6 (Default H2).<br /><strong>Custom Heading class</strong>	-	Replace default container class (page-header) with your custom class. If you want to use .page-header AND custom class, just type: "page-header your_custom_class" (separated by space).', 'pagelines' ),
 				'layout'		=> 'interface',
 				'selectvalues'	=> array(
 					'sh_font' => array(
@@ -177,7 +177,7 @@ class LUDHeader extends PageLinesSection {
 				'type'		=> 	'multi_option',
 				'title' 		=> __( 'FitText Header', 'pagelines' ),
 				'shortexp' 		=> __( 'Parameters', 'pagelines' ),
-				'exp'			=> __( '<strong>Use FitText</strong>	-	Weather to use FitText on page. Default false.<br /><strong>FitText Ratio</strong>	-	For tweeking resizing. 1 - normal, 0.x - less aggresively, 1.x is more aggresively. Default is set to (0.7).<br /><strong>Minfontsize and Maxfontsize</strong>	-	set the minimum and maximum font size in pixels. Great for situations when you want to preserve hierarchy.<br />more informations <a href="https://github.com/davatron5000/FitText.js">here</a>', 'pagelines' ),
+				'exp'			=> __( '<strong>FitText.js</strong> - Use this jQuery plugin to achieve flexible font-size of the heading.<br><br><strong>Use FitText</strong>	-	Use FitText on page. Default false.<br /><strong>FitText Ratio</strong>	-	For tweaking resizing. 1 - normal, 0.x - less aggressively, 1.x is more aggressively. Default is set to (0.7).<br /><strong>Minfontsize and Maxfontsize</strong>	-	set the minimum and maximum font size in pixels. Great for situations when you want to preserve hierarchy.<br />more information <a href="https://github.com/davatron5000/FitText.js">here</a>', 'pagelines' ),
 				'selectvalues'	=> array(
 					'sh_fit' => array(
 						'type' 			=> 'check',
@@ -211,7 +211,7 @@ class LUDHeader extends PageLinesSection {
 				'type'		=> 	'multi_option',
 				'title' 		=> __( 'Lettering.js Header', 'pagelines' ),
 				'shortexp' 		=> __( 'Parameters', 'pagelines' ),
-				'exp'			=> __( '<strong>Use Lettering.js</strong>	-	Weather to use Lettering.js on page. Default false.<br /><strong>Letering.js method</strong>	-	Choose what should be wraped in span (default Letters).<br />more informations on <a http://letteringjs.com/">here</a>', 'pagelines' ),
+				'exp'			=> __( '<strong>Lettering.js</strong> - jQuery plugin that wraps span element around every line, word or letter of your heading.<br><br><strong>Use Lettering.js</strong>	-	Weather to use Lettering.js on page. Default false.<br /><strong>Letering.js method</strong>	-	Choose what should be wrapped in span (default Letters).<br />For more information on how to use this option, go to <a href="http://demo.trampanet.net/scroll-header-pro">demo page</a><br>For more information on Lettering.js click <a href="http://letteringjs.com/">here</a>', 'pagelines' ),
 				'selectvalues'	=> array(
 					'sh_lettering' => array(
 						'type' 			=> 'check',
@@ -236,7 +236,7 @@ class LUDHeader extends PageLinesSection {
 					)
 				)
 		);
-		//Show "Title" from section metatab options as tab header
+		//Show "Title" from section metatab options as tab name
 		global $post_ID;
 		$oset = array('post_id' => $post_ID, 'clone_id' => $settings['clone_id'], 'type' => $settings['type']);
 		$sh_name = (ploption('sh_title', $oset)) ? ploption('sh_title', $oset) : $this -> name;

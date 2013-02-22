@@ -1,33 +1,39 @@
 == Description ==
 
-<p>Introducing Scroll Header Pro, tool for easy creating one-page sites and astonishing headings.<br />
-	This section allows you to use neat titles in front of any Pagelines section on the page. It fully allows you to take control over Scrol Spy. That way your page becomes perfect place to load as many sections as you wish, providing an easy to use manner. Both Lettering and FitText engines are included so you can take it as an advantage if titles are crucial part of your page design.
+<h3>Introducing Scroll Header Pro<small> tool for creating one-page sites</small></h3>
+This unique section allows you to create and insert beautiful ScrollSpy-ready headings anywhere on the page. It extends Scroll Spy usage to page template and content area. Also, with a little help from FitText.js and Lettering.js, it can be used for creating astonishing splash text blocks.
 <h3>Features</h3>
-<p>
-	<strong>Add Title, Heading and Subheading text.</strong><br />
-	<strong>Scroll Spy ready.</strong><br />
-	Works automaticaly with Scroll Spy. If you whant to use section clone as non-navigation heading on pages with ScrollSpy, you can disable Scroll Spy usage.<br />
-	<strong>Customize Look and feel</strong><br />
-	Choose Heading and subheading font.<br />
-	Choose Heading HTML tag (from H1 -  H6).<br />
-	Use Custom Heading Class. Default is .page-header.<br />
-	Use FitText for creating fluid Headings.<br />
-	Use Lettering for full control over every letter, word or line of your heading.<br />
-	<strong>Scroll Spy shortcode</strong><br />
-	Easy to use shortcode for inserting navigation heading in content.
-</p>
+<ul>
+	<li><strong style="font-size:1.2em;">ScrollSpy-ready</strong>&emsp;-&emsp;Works automatically with Scroll Spy (you can disable this on page metapanel).</li>
+	<li><strong style="font-size:1.2em;">Named Metatabs</strong>&emsp;-&emsp;Title text from section options is used as clone's metatab name.</li>
+	<li><strong style="font-size:1.2em;">Customize Look and feel</strong>&emsp;-&emsp;Choose heading <strong style="font-size:1.2em;">font, HTML tag (from H1 -  H6)</strong> and <strong style="font-size:1.2em;"> add custom class (default is .page-header)</strong>.</li>
+	<li><strong style="font-size:1.2em;">Use FitText.js</strong>&emsp;-&emsp;for creating big fluid headings.</li>
+	<li><strong style="font-size:1.2em;">Use Lettering.js</strong>&emsp;-&emsp;for advanced control over every letter, word or line of one heading.</li>
+	<li><strong style="font-size:1.2em;">Scroll Spy shortcode</strong style="font-size:1.2em;">&emsp;-&emsp;Easy to use shortcode for inserting ScrollSpy-ready headings in content.</li>
+</ul>
 <h3>Setup Instructions</h3>
-<ol>
-	<li>Create a page.</li>
-	<li>Drag &amp; Drop Scroll Spy on page.</li>
-	<li>Drag &amp; Drop Scroll Header Pro on page template and/or content area. Create as many clones as you need.</li>
-	<li>Add Title (required for use with Scroll Spy), heading and subheading texts.</li>
-	<li>Customize your headings.</li>
-	<li>Drag &amp; Drop other sections between Headings.</li>
+<h4 class="zmt">One-page site</h4>
+<ol class="zmb">
+	<li>Go to Pagelines "Drag &amp; Drop".</li>
+	<li>Drag &amp; Drop Scroll Spy.</li>
+	<li>Drag &amp; Drop Pagelines sections.</li>
+	<li>Drag &amp; Drop Scroll Header Pro between sections. Create as many clones as you need.</li>
+	<li>Go to page metapanel.</li>
+	<li>Add title, heading and subheading text to Scroll Header Pro section clones.</li>
+	<li>Customize your headings with options.</li>
 	<li>Voila. Scrollable one-page site is ready to go.</li>
 </ol>
+<h4>Splash text</h4>
+<ol class="zmb">
+	<li>Go to Pagelines "Drag &amp; Drop" menu.</li>
+	<li>Drag &amp; Drop Scroll Header Pro.</li>
+	<li>Go to page metapanel.</li>
+	<li>Customize your heading with options.</li>
+	<li>Apply custom style to your section (use example mixins from demo page or add your own custom style).</li>
+</ol>
+<p><strong style="font-size:1.2em;"> *****&emsp;Detailed explanation can be found on demo page.&emsp;*****</strong></p>
 <h3>Support</h3>
-<p>Please leave all your support questions and feature suggestions in comments. Reviews add through "Click To Add a Review" link bellow.</p>
+<p>Please leave all your support questions and feature suggestions on forum. Reviews add through "Click To Add a Review" link below.</p>
 
 == Changelog ==
 
