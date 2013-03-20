@@ -80,7 +80,7 @@ class LUDHeader extends PageLinesSection {
 		
 		//Hide heading on page.
 		if( $sh_hide_header === true){
-			printf('<div class="%s sh-container" title="%s"></div>',$sh_scrollspy, $sh_title);
+			printf('<div class="%s %s sh-container" title="%s"></div>', $sh_class, $sh_scrollspy, $sh_title);
 		}
 		else{
 			//Main template
@@ -177,7 +177,7 @@ class LUDHeader extends PageLinesSection {
 				'type'		=> 	'multi_option',
 				'title' 		=> __( 'FitText Header', 'pagelines' ),
 				'shortexp' 		=> __( 'Parameters', 'pagelines' ),
-				'exp'			=> __( '<strong>FitText.js</strong> - Use this jQuery plugin to achieve flexible font-size of the heading.<br><br><strong>Use FitText</strong>	-	Use FitText on page. Default false.<br /><strong>FitText Ratio</strong>	-	For tweaking resizing. 1 - normal, 0.x - less aggressively, 1.x is more aggressively. Default is set to (0.7).<br /><strong>Minfontsize and Maxfontsize</strong>	-	set the minimum and maximum font size in pixels. Great for situations when you want to preserve hierarchy.<br />more information <a href="https://github.com/davatron5000/FitText.js">here</a>', 'pagelines' ),
+				'exp'			=> __( '<strong>FitText.js</strong> - Use this jQuery plugin to achieve flexible font-size of the heading.<br><br><strong>Use FitText</strong>	-	Use FitText on page. Default false.<br /><strong>FitText Ratio</strong>	-	For tweaking resizing. 1 - normal, 0.x - less aggressively, 1.x is more aggressively. Default is set to (0.7).<br /><strong>Minfontsize and Maxfontsize</strong>	-	set the minimum and maximum font size in pixels. Great for situations when you want to preserve hierarchy.<br />more information <a href="https://github.com/davatron5000/FitText.js" target="_blank">here</a>', 'pagelines' ),
 				'selectvalues'	=> array(
 					'sh_fit' => array(
 						'type' 			=> 'check',
@@ -211,7 +211,7 @@ class LUDHeader extends PageLinesSection {
 				'type'		=> 	'multi_option',
 				'title' 		=> __( 'Lettering.js Header', 'pagelines' ),
 				'shortexp' 		=> __( 'Parameters', 'pagelines' ),
-				'exp'			=> __( '<strong>Lettering.js</strong> - jQuery plugin that wraps span element around every line, word or letter of your heading.<br><br><strong>Use Lettering.js</strong>	-	Weather to use Lettering.js on page. Default false.<br /><strong>Letering.js method</strong>	-	Choose what should be wrapped in span (default Letters).<br />For more information on how to use this option, go to <a href="http://demo.trampanet.net/scroll-header-pro">demo page</a><br>For more information on Lettering.js click <a href="http://letteringjs.com/">here</a>', 'pagelines' ),
+				'exp'			=> __( '<strong>Lettering.js</strong> - jQuery plugin that wraps span element around every line, word or letter of your heading.<br><br><strong>Use Lettering.js</strong>	-	Whether to use Lettering.js on page. Default false.<br /><strong>Letering.js method</strong>	-	Choose what should be wrapped in span (default Letters).<br />For more information on how to use this option, go to <a href="http://demo.trampanet.net/scroll-header-pro" target="_blank">demo page</a><br>For more information on Lettering.js click <a href="http://letteringjs.com/" target="_blank">here</a>', 'pagelines' ),
 				'selectvalues'	=> array(
 					'sh_lettering' => array(
 						'type' 			=> 'check',

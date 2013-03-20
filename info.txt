@@ -4,16 +4,16 @@
 This unique section allows you to create and insert beautiful ScrollSpy-ready headings anywhere on the page. It extends Scroll Spy usage to page template and content area. Also, with a little help from FitText.js and Lettering.js, it can be used for creating astonishing splash text blocks.
 <h3>Features</h3>
 <ul>
-	<li><strong style="font-size:1.2em;">ScrollSpy-ready</strong>&emsp;-&emsp;Works automatically with Scroll Spy (you can disable this on page metapanel).</li>
-	<li><strong style="font-size:1.2em;">Named Metatabs</strong>&emsp;-&emsp;Title text from section options is used as clone's metatab name.</li>
-	<li><strong style="font-size:1.2em;">Customize Look and feel</strong>&emsp;-&emsp;Choose heading <strong style="font-size:1.2em;">font, HTML tag (from H1 -  H6)</strong> and <strong style="font-size:1.2em;"> add custom class (default is .page-header)</strong>.</li>
-	<li><strong style="font-size:1.2em;">Use FitText.js</strong>&emsp;-&emsp;for creating big fluid headings.</li>
-	<li><strong style="font-size:1.2em;">Use Lettering.js</strong>&emsp;-&emsp;for advanced control over every letter, word or line of one heading.</li>
-	<li><strong style="font-size:1.2em;">Scroll Spy shortcode</strong style="font-size:1.2em;">&emsp;-&emsp;Easy to use shortcode for inserting ScrollSpy-ready headings in content.</li>
+	<li><strong style="font-size:1.1em;">ScrollSpy-ready</strong>&emsp;-&emsp;Works automatically with Scroll Spy (you can disable this on page metapanel).</li>
+	<li><strong style="font-size:1.1em;">Named Metatabs</strong>&emsp;-&emsp;Title text from section options is used as clone's metatab name.</li>
+	<li><strong style="font-size:1.1em;">Customize Look and feel</strong>&emsp;-&emsp;Choose heading <strong>font, HTML tag (from H1 -  H6)</strong> and <strong> add custom class (default is .page-header)</strong>.</li>
+	<li><strong style="font-size:1.1em;">Use FitText.js</strong>&emsp;-&emsp;for creating big fluid headings.</li>
+	<li><strong style="font-size:1.1em;">Use Lettering.js</strong>&emsp;-&emsp;for advanced control over every letter, word or line of one heading.</li>
+	<li><strong style="font-size:1.1em;">Scroll Spy shortcode</strong>&emsp;-&emsp;Easy to use shortcode for inserting ScrollSpy-ready headings in content.</li>
 </ul>
 <h3>Setup Instructions</h3>
-<h4 class="zmt">One-page site</h4>
-<ol class="zmb">
+<h4>One-page site</h4>
+<ol>
 	<li>Go to Pagelines "Drag &amp; Drop".</li>
 	<li>Drag &amp; Drop Scroll Spy.</li>
 	<li>Drag &amp; Drop Pagelines sections.</li>
@@ -24,7 +24,7 @@ This unique section allows you to create and insert beautiful ScrollSpy-ready he
 	<li>Voila. Scrollable one-page site is ready to go.</li>
 </ol>
 <h4>Splash text</h4>
-<ol class="zmb">
+<ol>
 	<li>Go to Pagelines "Drag &amp; Drop" menu.</li>
 	<li>Drag &amp; Drop Scroll Header Pro.</li>
 	<li>Go to page metapanel.</li>
@@ -39,3 +39,6 @@ This unique section allows you to create and insert beautiful ScrollSpy-ready he
 
 = 1.0 =
 * Initial release
+
+= 1.0.5 =
+* Minor changes and fixes
