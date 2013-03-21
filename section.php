@@ -2,7 +2,7 @@
 /*
 Section: Scroll Header Pro
 Author: .bestrag
-Author URI: bestrag.pagelines.me
+Author URI: http://bestrag.wordpress.com/
 Version: 1.0.0
 Description: Create a one-page site in a breeze. This section allows you to create beautiful ScrollSpy-ready headings anywhere on the page. Works with Lettering and FitText. Also included: ScrollSpy CSS fix and shortcode for content.
 Class Name: LUDHeader
