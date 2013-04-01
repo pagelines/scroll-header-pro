@@ -12,7 +12,7 @@ Demo: http://demo.trampanet.net/scroll-header-pro
 */
 
 class LUDHeader extends PageLinesSection {
-
+	//
 	function section_styles(){
 		wp_enqueue_script('scrollheader', $this->base_url.'/jquery.scrollheader.min.js', array( 'jquery' ));
 	}
