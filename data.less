@@ -1,0 +1,57 @@
+#scroll-header-pro{
+	background-attachment: fixed;
+}
+
+.sh-container{}
+.sh-heading{
+	line-height: 1;
+}
+
+//Spynav fix (removes active button styles) - will be deprecated in next update
+.spynav_mix{
+	padding-left:12px !important;
+	.box-shadow(inset 0 0 0);
+	color: @textColorAlt;
+	border-top-color: darken(@baseContrastMore, 10);
+}
+section#scrollspy{
+	.spynav {
+		.border-radius(4px);
+		&.spynav-fixed{
+			.border-radius(0px);
+		}
+	}
+	.spynav .nav > li.active > a{
+		.buttonBackground(@baseContrastSlight, @baseContrastMore);
+		.border-radius(0px);
+		border-left: 1px solid rgba(255,255,255,0.4);
+		border-right: 1px solid darken(@baseContrastMore, 10);
+		.spynav_mix;
+	}
+	.spynav .nav > li.active > a:hover{
+		.buttonBackground(darken(@baseContrastMore, 5), @baseContrast);
+		border-left: 1px solid darken(@baseContrastMore, 10);
+		border-right: 1px solid rgba(0,0,0,0.1);
+		.spynav_mix;
+	}
+	.spynav .nav > li.active:first-child > a{
+		border-radius: 4px 0 0 4px;
+		&:hover {
+			border-radius: 4px 0 0 4px;
+		}
+	}
+	.spynav.spynav-fixed .nav {
+		&> li:first-child, &> li.active:first-child {
+			&:hover{
+				border-left: 1px solid darken(@baseContrastMore, 10);
+			}
+			&> a {
+				border-left: 1px solid darken(@baseContrastMore, 10);
+				.border-radius(0px);
+				&:hover{
+					padding-left: 11px !important;
+				}
+			}
+		}
+	}
+}

@@ -3,7 +3,7 @@
 HTML structure:
 
 <div class="page-header scroll-header sh-container" title="(your_title)">
-	<h2 class="zmb sh-heading fittext" id="shID">
+	<h2 class="zmb sh-heading" id="shID">
 		(Heading_text)	<small>	(Subheading_text) </small>
 	</h2>
 </div>
@@ -12,74 +12,18 @@ classes and IDs (explanation)
 
 Heading Container
 .page-header	-	Default container class. If custom class(es) is added (in metatab options), class .page-header will be substituted with it.
-.scroll-header	-	Class needed for ScrollSpy functionality. If "Disable ScrollSpy usage" is checked, this class will be removed.
+.scroll-header	-	Class needed for Scrolling menu functionality (Scroll Nav, ScrollSpy or similar). If "Disable Scroll Menu integration" is checked, this class will be removed.
 .sh-container	-	Empty class for your customisation.
 
 Heading
 .zmb		-	removes bottom margin
 .sh-heading	-	Empty class for your customisation.
-.sh-fittext	-	class used with FitText (if enabled).
-#shID #shID2 #shID3 etc.			-	Unique ID tag of every heading. Used for custom heading font.
+
+#shID1 #shID2 #shID3 etc.			-	Unique ID tag of every heading. Used for custom heading font.
 .char1, .word1, .line1, .char2 etc.	-	classes for styling <span> elements, if lettering.js is activated. Use inspect element (or other) on demo page.
 */
 
 //For customisation of container and heading
+
 .sh-container{}
 .sh-heading{}
-
-
-//fittext class
-.sh-fittext{
-	width: 99%;
-	margin: 0 auto;
-	text-align: center;
-}
-//Spynav fix (removes active button styles)
-.spynav_mix{
-	padding-left:12px !important;
-	.box-shadow(inset 0 0 0);
-	color: @textColorAlt;
-	border-top-color: darken(@baseContrastMore, 10);
-}
-
-section#scrollspy{
-	.spynav {
-		.border-radius(4px);
-		&.spynav-fixed{
-			.border-radius(0px);
-		}
-	}
-	.spynav .nav > li.active > a{
-		.buttonBackground(@baseContrastSlight, @baseContrastMore);
-		.border-radius(0px);
-		border-left: 1px solid rgba(255,255,255,0.4);
-		border-right: 1px solid darken(@baseContrastMore, 10);
-		.spynav_mix;
-	}
-	.spynav .nav > li.active > a:hover{
-		.buttonBackground(darken(@baseContrastMore, 5), @baseContrast);
-		border-left: 1px solid darken(@baseContrastMore, 10);
-		border-right: 1px solid rgba(0,0,0,0.1);
-		.spynav_mix;
-	}
-	.spynav .nav > li.active:first-child > a{
-		border-radius: 4px 0 0 4px;
-		&:hover {
-			border-radius: 4px 0 0 4px;
-		}
-	}
-	.spynav.spynav-fixed .nav {
-		&> li:first-child, &> li.active:first-child {
-			&:hover{
-				border-left: 1px solid darken(@baseContrastMore, 10);
-			}
-			&> a {
-				border-left: 1px solid darken(@baseContrastMore, 10);
-				.border-radius(0px);
-				&:hover{
-					padding-left: 11px !important;
-				}
-			}
-		}
-	}
-}

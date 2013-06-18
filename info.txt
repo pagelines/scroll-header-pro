@@ -1,28 +1,40 @@
 == Description ==
 
-<h3>Introducing Scroll Header Pro<small> tool for creating one-page sites</small></h3>
-This unique section allows you to create and insert beautiful ScrollSpy-ready headings anywhere on the page. It extends Scroll Spy usage to page template and content area. Also, with a little help from FitText.js and Lettering.js, it can be used for creating astonishing splash text blocks.
+<p>
+<h3>SHP NOW WITH PARALLAX<small>  ~ Create a one-page site in a breeze ~</small></h3>
+Perfect for adding scroll ready headings between sections. Now it comes with easy to use parallax effect. Fits on any screen. Create one page site in minutes.
+</p>
+
+<p>
 <h3>Features</h3>
+<br>
 <ul>
-	<li><strong style="font-size:1.1em;">ScrollSpy-ready</strong>&emsp;-&emsp;Works automatically with Scroll Spy (you can disable this on page metapanel).</li>
-	<li><strong style="font-size:1.1em;">Named Metatabs</strong>&emsp;-&emsp;Title text from section options is used as clone's metatab name.</li>
-	<li><strong style="font-size:1.1em;">Customize Look and feel</strong>&emsp;-&emsp;Choose heading <strong>font, HTML tag (from H1 -  H6)</strong> and <strong> add custom class (default is .page-header)</strong>.</li>
-	<li><strong style="font-size:1.1em;">Use FitText.js</strong>&emsp;-&emsp;for creating big fluid headings.</li>
-	<li><strong style="font-size:1.1em;">Use Lettering.js</strong>&emsp;-&emsp;for advanced control over every letter, word or line of one heading.</li>
-	<li><strong style="font-size:1.1em;">Scroll Spy shortcode</strong>&emsp;-&emsp;Easy to use shortcode for inserting ScrollSpy-ready headings in content.</li>
+	<li><strong style="font-size: 1.1em;">Scroll - ready</strong> - works automatically with <a href="http://www.pagelines.com/store/sections/scroll-nav/" target="_blank">Scroll Nav</a> and Scroll Spy.</li>
+	<li><strong style="font-size: 1.1em;">Built in Parallax Effect</strong> - for effective one-page sites.</li>
+	<li><strong style="font-size: 1.1em;">Named Metatabs</strong> - title text from section options is used as clone's metatab name.</li>
+	<li><strong style="font-size: 1.1em;">Customize Look &amp; Feel</strong> - Choose heading <strong>font, HTML tag </strong> and <strong> custom class</strong>.</li>
+	<li><strong style="font-size: 1.1em;">Big and Responsive</strong> - heading text that fits to any screen.</li>
+	<li><strong style="font-size: 1.1em;">Use Lettering.js</strong> - for advanced control over every letter, word or line of one heading.</li>
+	<li><strong style="font-size: 1.1em;">Scroll Spy shortcode</strong> - easy to use shortcode for inserting ScrollSpy-ready headings in content.</li>
 </ul>
+</p>
+
+<p>
 <h3>Setup Instructions</h3>
+<br>
 <h4>One-page site</h4>
 <ol>
 	<li>Go to Pagelines "Drag &amp; Drop".</li>
-	<li>Drag &amp; Drop Scroll Spy.</li>
-	<li>Drag &amp; Drop Pagelines sections.</li>
-	<li>Drag &amp; Drop Scroll Header Pro between sections. Create as many clones as you need.</li>
-	<li>Go to page metapanel.</li>
+	<li>Drag &amp; Drop Scroll Spy or use <a href="http://www.pagelines.com/store/sections/scroll-nav/" target="_blank">Scroll Nav</a>.</li>
+	<li>Drag &amp; Drop Pagelines sections that you need.</li>
+	<li>Drag &amp; Drop Scroll Header Pro.</li>
+	<li>Create as many Scroll Header Pro clones as you need.</li>
+	<li>Place your clones between sections and go to edit your page.</li>
 	<li>Add title, heading and subheading text to Scroll Header Pro section clones.</li>
 	<li>Customize your headings with options.</li>
 	<li>Voila. Scrollable one-page site is ready to go.</li>
 </ol>
+<br>
 <h4>Splash text</h4>
 <ol>
 	<li>Go to Pagelines "Drag &amp; Drop" menu.</li>
@@ -31,9 +43,12 @@ This unique section allows you to create and insert beautiful ScrollSpy-ready he
 	<li>Customize your heading with options.</li>
 	<li>Apply custom style to your section (use example mixins from demo page or add your own custom style).</li>
 </ol>
-<p><strong style="font-size:1.2em;"> *****&emsp;Detailed explanation can be found on demo page.&emsp;*****</strong></p>
+</p>
+<strong style="font-size: 1.4em;"> ***** See it in action on <a href="http://bestrag.net/scroll-header-pro/" target="_blank">demo</a> page. *****</strong>
 <h3>Support</h3>
-<p>Please leave all your support questions and feature suggestions on forum. Reviews add through "Click To Add a Review" link below.</p>
+<p>
+Please leave all your support questions and feature suggestions on forum. Reviews add through "Click To Add a Review" link below.
+</p>
 
 == Changelog ==
 
@@ -41,4 +56,10 @@ This unique section allows you to create and insert beautiful ScrollSpy-ready he
 * Initial release
 
 = 1.0.5 =
-* Minor changes and fixes
+* Minor text changes
+
+= 1.1 =
+* Added Parallax background effect
+* Added options for section height and padding control
+* Added background image
+* Removed option to hide heading text on page
