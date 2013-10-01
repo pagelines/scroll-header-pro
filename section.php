@@ -2,64 +2,69 @@
 /*
 Section: Scroll Header Pro
 Author: .bestrag
-Author URI: bestrag.net
-Version: 1.1
+Author URI: http://bestrag.net
+Version: 3.0
 Description: NOW WITH PARALLAX. Create a one-page site in a breeze: insert fully customizable Scrolling-ready headings between sections, add scroll menu, stylize and done. Fits on any screen.
 Class Name: LUDHeader
 Workswith: main, templates
-Cloning: true
 Demo: http://bestrag.net/scroll-header-pro
+Cloning: true
+V3: true
 */
 
 class LUDHeader extends PageLinesSection {
-
-	function section_styles(){
+	function section_scripts(){
 		wp_enqueue_script('scrollheader', $this->base_url.'/jquery.scrollheader.min.js', array( 'jquery' ),'1.1', true);
 	}
-	function section_head($clone_id ){
-
-		$clone = ($clone_id) ? '#scroll-header-pro.clone_'.$clone_id: '#scroll-header-pro.clone_1' ;
-		$sh_bckground_img = (ploption('sh_bckground_img', $this->oset)) ? 'url('.(ploption('sh_bckground_img', $this->oset) ).')' : "";
-		$sh_fit = (ploption('sh_fit', $this->oset)) ? 'true' : null;
-		$sh_fit_size = (ploption('sh_fit_size', $this->oset)) ? ploption('sh_fit_size', $this->oset) : .7 ;
-		$sh_minfontsize = (ploption('sh_minfontsize', $this->oset)) ? (ploption('sh_minfontsize', $this->oset)) : '1px';
-		$sh_maxfontsize = (ploption('sh_maxfontsize', $this->oset)) ? (ploption('sh_maxfontsize', $this->oset)) : '999px';
-		$sh_lettering = ( ploption('sh_lettering', $this->oset) ) ? 'true' : null;
+	function section_head(){
+		$clone_id = $this->oset['clone_id'];
+		$sh_bckground_img = ($this->opt('sh_bckground_img', $this->oset)) ? 'url('.($this->opt('sh_bckground_img', $this->oset) ).')' : "";
+		$sh_fit = ($this->opt('sh_fit', $this->oset)) ? 'true' : null;
+		$sh_fit_size = ($this->opt('sh_fit_size', $this->oset)) ? $this->opt('sh_fit_size', $this->oset) : .7 ;
+		$sh_minfontsize = ($this->opt('sh_minfontsize', $this->oset)) ? ($this->opt('sh_minfontsize', $this->oset)) : '1px';
+		$sh_maxfontsize = ($this->opt('sh_maxfontsize', $this->oset)) ? ($this->opt('sh_maxfontsize', $this->oset)) : '999px';
+		$sh_lettering = ( $this->opt('sh_lettering', $this->oset) ) ? 'true' : null;
 		$sh_lselector = '#shID'.$clone_id;
-		$sh_method = (ploption('sh_method', $this->oset)) ? (ploption('sh_method', $this->oset)) : null;
+		$sh_method = ($this->opt('sh_method', $this->oset)) ? ($this->opt('sh_method', $this->oset)) : null;
 		//new from ver 1.2
-		$sh_parallax = (ploption('sh_use_parallax', $this->oset)) ? 'true' : null;
-		$sh_parallax_speed = (ploption('sh_parallax_speed', $this->oset)) ? (ploption('sh_parallax_speed', $this->oset)) : "0.5";
-		$sh_height = (ploption('sh_height', $this->oset)) ? ploption('sh_height', $this->oset) : '';
+		$sh_parallax = ($this->opt('sh_use_parallax', $this->oset)) ? 'true' : null;
+		$sh_parallax_speed = ($this->opt('sh_parallax_speed', $this->oset)) ? ($this->opt('sh_parallax_speed', $this->oset)) : "0.5";
+		$sh_height = ($this->opt('sh_height', $this->oset)) ? $this->opt('sh_height', $this->oset) : '';
 		if(is_numeric($sh_height)) $sh_height .= 'px';
-		$sh_padding_top = (ploption('sh_padding_top', $this->oset)) ? ploption('sh_padding_top', $this->oset) : '';
+		$sh_padding_top = ($this->opt('sh_padding_top', $this->oset)) ? $this->opt('sh_padding_top', $this->oset) : '';
 		if(is_numeric($sh_padding_top)) $sh_padding_top .= 'px';
-		$sh_padding_bottom = (ploption('sh_padding_bottom', $this->oset)) ? ploption('sh_padding_bottom', $this->oset) : '';
+		$sh_padding_bottom = ($this->opt('sh_padding_bottom', $this->oset)) ? $this->opt('sh_padding_bottom', $this->oset) : '';
 		if(is_numeric($sh_padding_bottom)) $sh_padding_bottom .= 'px';
-		$sh_text_align = (ploption('sh_text_align', $this->oset)) ? ploption('sh_text_align', $this->oset) : '';
+		$sh_text_align = ($this->opt('sh_text_align', $this->oset)) ? $this->opt('sh_text_align', $this->oset) : '';
+		$sh_background_mode = ($this->opt('sh_background_mode', $this->oset)) ? $this->opt('sh_background_mode', $this->oset) : '' ;
 		?>
 			<script type="text/javascript">
 				jQuery(document).ready(function(){
-					sectionClone = jQuery('<?php echo $clone; ?>');
-					headingID = jQuery('<?php echo $sh_lselector; ?>', sectionClone);
-					height = '<?php echo $sh_height; ?>';
-					paddingTop = '<?php echo $sh_padding_top; ?>';
-					paddingBottom = '<?php echo $sh_padding_bottom; ?>';
-					textAlign = '<?php echo $sh_text_align; ?>';
-					image = '<?php echo $sh_bckground_img; ?>';
-					speed = <?php echo $sh_parallax_speed; ?>;
+					$					= jQuery;
+					sectionClone		= ($('section#scroll-header-pro').length === 0)
+						? $('section#scroll-header-pro<?php echo $clone_id; ?>')
+						: $('section.section-scroll-header-pro.clone_<?php echo $clone_id; ?>');
+					headingID			= $('<?php echo $sh_lselector; ?>', sectionClone);
+					height				= '<?php echo $sh_height; ?>';
+					paddingTop			= '<?php echo $sh_padding_top; ?>';
+					paddingBottom		= '<?php echo $sh_padding_bottom; ?>';
+					textAlign			= '<?php echo $sh_text_align; ?>';
+					image				= '<?php echo $sh_bckground_img; ?>';
+					speed				= <?php echo $sh_parallax_speed; ?>;
+					
 					sectionClone.css({
-						'padding-top' : paddingTop,
-						'padding-bottom' : paddingBottom,
-						'height': height,
-						'background-image' : image
+						'padding-top'		: paddingTop,
+						'padding-bottom'	: paddingBottom,
+						'height'			: height,
+						'background-image'	: image
 					});
+					sectionClone.addClass('<?php echo $sh_background_mode; ?>');
 					headingID.css('text-align', textAlign);
 					if('<?php echo $sh_parallax; ?>'){
 						sectionClone.attr("data-stellar-background-ratio", speed);
 					}
 					if('<?php echo $sh_fit; ?>'){
-						jQuery('<?php echo $clone;?> .sh-heading').fitText(
+						headingID.fitText(
 							"<?php echo $sh_fit_size; ?>",
 						{
 							minFontSize: '<?php echo $sh_minfontsize; ?>',
@@ -67,37 +72,35 @@ class LUDHeader extends PageLinesSection {
 						});
 					}
 					if('<?php echo $sh_lettering; ?>'){
-						console.log('lettering');
 						if('<?php echo $sh_method;?>' === 'wl'){
-							headingID.lettering('words').children('span').lettering();
-							console.log('wl');
+							headingID.lettering('words').children('span').lettering();							
 						}
 						else{
-							headingID.lettering('<?php echo $sh_method; ?>');
-							console.log('else');
+							headingID.lettering('<?php echo $sh_method; ?>');						
 						}
 					}
-
 				});
 			</script>
 			<?php
 		//Font
-		if (ploption('sh_font', $this->oset)) {
-			echo load_custom_font( ploption('sh_font', $this->oset), "#shID$clone_id");
+		if ($this->opt('sh_font', $this->oset)) {
+			echo load_custom_font( $this->opt('sh_font', $this->oset), "#shID$clone_id");
 		}
 	}
 
-	function section_template( $clone_id ) {
-		$sh_heading_tag = ( in_array( ploption('sh_heading_tag', $this->oset), array('1','2','3','4','5','6'))) ? ploption('sh_heading_tag', $this->oset) : 2 ;
-		$sh_title = ( ploption('sh_title', $this->oset) ) ? ploption('sh_title', $this->oset) : NULL;
-		$sh_header = ( ploption('sh_header', $this->oset) ) ? ploption('sh_header', $this->oset) : NULL;
-		$sh_header_small = ( ploption('sh_header_small', $this->oset) ) ? '<small>&nbsp;'.ploption('sh_header_small', $this->oset).'</small>' : NULL;
-		$sh_class = ( ploption('sh_class', $this->oset) ) ? ploption('sh_class', $this->oset) : 'page-header' ;
-		$sh_scrollspy = ( ploption('sh_use_scrollspy', $this->oset) ) ? NULL : 'scroll-header' ;
+	function section_template() {
+		$clone_id = $this->oset['clone_id'];
+		$sh_heading_tag = ( in_array( $this->opt('sh_heading_tag', $this->oset), array('1','2','3','4','5','6'))) ? $this->opt('sh_heading_tag', $this->oset) : 2 ;
+		$sh_title = ( $this->opt('sh_title', $this->oset) ) ? $this->opt('sh_title', $this->oset) : NULL;
+		$sh_header = ( $this->opt('sh_header', $this->oset) ) ? $this->opt('sh_header', $this->oset) : NULL;
+		$sh_header_small = ( $this->opt('sh_header_small', $this->oset) ) ? '<small>&nbsp;'.$this->opt('sh_header_small', $this->oset).'</small>' : NULL;
+		$sh_class = ( $this->opt('sh_class', $this->oset) ) ? $this->opt('sh_class', $this->oset) : '' ;
+		$sh_scrollspy = ( $this->opt('sh_use_scrollspy', $this->oset) ) ? NULL : 'scroll-header' ;
 		$sh_heading_id = 'shID'.$clone_id;
-
-		$format='<div class="%s %s sh-container" title="%s"><h%d class="sh-heading" id="%s">%s%s</h%d></div>';
-		printf($format, $sh_class, $sh_scrollspy, $sh_title, $sh_heading_tag, $sh_heading_id, $sh_header, $sh_header_small, $sh_heading_tag);
+		$sh_container_id = 'shp-containerID'.$clone_id;
+		
+		$format='<div id="%s" class="%s %s sh-container" title="%s"><h%d class="sh-heading" id="%s">%s%s</h%d></div>';
+		printf($format,$sh_container_id, $sh_class, $sh_scrollspy, $sh_title, $sh_heading_tag, $sh_heading_id, $sh_header, $sh_header_small, $sh_heading_tag);
 	}
 
 	function section_optionator($settings){
@@ -129,7 +132,7 @@ class LUDHeader extends PageLinesSection {
 					),
 					'sh_heading_tag'	=> array(
 						'type' 			=> 'select',
-						'default' 		=> 2,
+						'default' 		=> '2',
 						'inputlabel' 	=> __( 'Heading HTML Tag', 'pagelines' ),
 						'selectvalues' => array(
 							'1'	=> array('name' => __( 'H1', 'pagelines') ),
@@ -142,7 +145,6 @@ class LUDHeader extends PageLinesSection {
 					),
 					'sh_use_scrollspy' => array(
 						'type' 			=> 'check',
-						'default'		=> false,
 						'inputlabel'	=> __( 'Disable Scroll Menu integration', 'pagelines' ),
 					)
 				)
@@ -163,12 +165,12 @@ class LUDHeader extends PageLinesSection {
 					),
 					'sh_text_align' =>array(
 						'type' 			=> 'select',
-						'default' 		=> 2,
+						'default' 		=> 'left',
 						'inputlabel' 	=> __( 'Text Align', 'pagelines' ),
 						'selectvalues' => array(
 							'left'	=> array('name' => __( 'Left (Default)', 'pagelines') ),
 							'right'	=> array('name' => __( 'Right', 'pagelines') ),
-							'çenter'	=> array('name' => __( 'Center', 'pagelines') )
+							'center'	=> array('name' => __( 'Center', 'pagelines') )
 						)
 					),
 					'sh_class' => array(
@@ -178,7 +180,17 @@ class LUDHeader extends PageLinesSection {
 					'sh_bckground_img'=> array(
 						'inputlabel' 	=> __( 'Background Image', 'pagelines' ),
 						'type'			=> 'image_upload'
-					)
+					),
+					'sh_background_mode' => array(
+						'type'			=> 'select',
+						'inputlabel'	=> 'Choose background size',
+						'selectvalues'	=> array(
+							'sh-stretch'	=> array('name' => 'Stretch'),
+							'sh-contain'	=> array('name' => 'Contain'),
+							'sh-cover'		=> array('name' => 'Cover'),
+							'sh-repeat'		=> array('name' => 'Repeat (Default)'),
+						),
+					),
 				)
 		);
 		$opts['sh_layout'] = array(
@@ -189,15 +201,15 @@ class LUDHeader extends PageLinesSection {
 					<strong>Padding Top and Bottom</strong>	-	Set vertical position of the heading inside the section.<br />', 'pagelines' ),
 				'selectvalues'	=> array(
 					'sh_height' => array(
-						'type' 			=> 'text_small',
+						'type' 			=> 'text',
 						'inputlabel'	=> __( 'Section Height (in px, %, em).', 'pagelines' ),
 					),
 					'sh_padding_top' => array(
-						'type' 			=> 'text_small',
+						'type' 			=> 'text',
 						'inputlabel'	=> __( 'Section Padding - Top (in px, %, em).', 'pagelines' ),
 					),
 					'sh_padding_bottom' => array(
-						'type' 			=> 'text_small',
+						'type' 			=> 'text',
 						'inputlabel'	=> __( 'Section Padding - Bottom (in px, %, em).', 'pagelines' ),
 					)
 				)
@@ -212,11 +224,10 @@ class LUDHeader extends PageLinesSection {
 				'selectvalues'	=> array(
 					'sh_use_parallax'   => array(
 						'type' 			=> 'check',
-						'default'		=> false,
 						'inputlabel'	=> __( 'Enable Parallax', 'pagelines' ),
 					),
 					'sh_parallax_speed' => array(
-						'type' 			=> 'text_small',
+						'type' 			=> 'text',
 						'inputlabel'	=> __( 'Scroll Speed (default 0.5)', 'pagelines' ),
 					)
 				)
@@ -233,20 +244,18 @@ class LUDHeader extends PageLinesSection {
 				'selectvalues'	=> array(
 					'sh_fit' => array(
 						'type' 			=> 'check',
-						'default'		=> false,
 						'inputlabel'	=> __( 'Use FitText', 'pagelines' ),
 					),
 					'sh_fit_size' => array(
-						'type' 			=> 'text_small',
-						'default'		=> .7,
+						'type' 			=> 'text',
 						'inputlabel'	=> __( 'FitText Ratio (default 0.7)', 'pagelines' ),
 					),
 					'sh_minfontsize' => array(
-						'type' 			=> 'text_small',
+						'type' 			=> 'text',
 						'inputlabel'	=> __( 'Minimum Font Size (px)', 'pagelines' ),
 					),
 					'sh_maxfontsize' => array(
-						'type' 			=> 'text_small',
+						'type' 			=> 'text',
 						'inputlabel'	=> __( 'Maximum Font Size (px)', 'pagelines' ),
 					)
 				)
@@ -259,18 +268,16 @@ class LUDHeader extends PageLinesSection {
 				'selectvalues'	=> array(
 					'sh_lettering' => array(
 						'type' 			=> 'check',
-						'default'		=> false,
 						'inputlabel'	=> __( 'Use Lettering.js', 'pagelines' ),
 					),
 					'sh_method' => array(
 						'type' 			=> 'select',
-						'default' 		=> 'letters',
 						'inputlabel' 	=> __( 'Letering.js method (default Letters) ', 'pagelines' ),
 						'selectvalues' => array(
 							'letters'	=> array('name' => __( 'Letters (Default)', 'pagelines') ),
-							'words'	=> array('name' => __( 'Words', 'pagelines') ),
-							'lines'	=> array('name' => __( 'Lines', 'pagelines') ),
-							'wl'	=> array('name' => __( 'Words/letters', 'pagelines') ),
+							'words'		=> array('name' => __( 'Words', 'pagelines') ),
+							'lines'		=> array('name' => __( 'Lines', 'pagelines') ),
+							'wl'		=> array('name' => __( 'Words/letters', 'pagelines') ),
 						)
 					)
 				)
@@ -278,7 +285,7 @@ class LUDHeader extends PageLinesSection {
 		//Show "Title" from section metatab options as tab name
 		global $post_ID;
 		$oset = array('post_id' => $post_ID, 'clone_id' => $settings['clone_id'], 'type' => $settings['type']);
-		$sh_name = (ploption('sh_title', $oset)) ? ploption('sh_title', $oset) : $this -> name;
+		$sh_name = ($this->opt('sh_title', $oset)) ? $this->opt('sh_title', $oset) : $this->name;
 
 		$tab_settings = array(
 			'id' 		=> $this->id,
@@ -291,28 +298,21 @@ class LUDHeader extends PageLinesSection {
 	}
 
 	function section_persistent(){
-
-		//new less file
-		add_action( 'template_redirect',array(&$this, 'scroll_header_pro_less') );
-
 		//Scroll Spy shortcode
-		function scrollspy_open($atts, $content = null) {
-			extract(shortcode_atts(array('class' => 'page-header', 'title' => '', 'h_tag' => '2' ), $atts));
-			$return = '<div class="'.$class.' scroll-header sh-container"';
+		function shp_open($atts, $content = null) {
+			extract(shortcode_atts(array('class' => '', 'title' => '', 'h_tag' => '2' ), $atts));
+			$id_random = 'shp-containerID'.rand(1000, 10000);
+			$return = '<div id="'.$id_random.'" class="'.$class.' scroll-header sh-container"';
 			if (!empty($title)) $return .= ' title="'.$title.'"';
 			$h_temp = (in_array($h_tag, array('1','2','3','4','5','6'))) ? $h_tag : '2';
 			$return .= '><h'.$h_temp.' class="zmb sh-heading">';
 			return $return.do_shortcode($content).'</h'.$h_temp.'></div>';
 		}
-		add_shortcode('scrollspy', 'scrollspy_open');
+		add_shortcode('shp', 'shp_open');
 
 		function small_header($atts, $content = null) {
 			return '&nbsp;<small>' . $content . '</small>';
 		}
 		add_shortcode('small', 'small_header');
-	}
-	function scroll_header_pro_less() {
-		$file = sprintf('%s/data.less', $this->base_dir);
-  		pagelines_insert_core_less( $file );
 	}
 }
