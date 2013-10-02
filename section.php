@@ -4,12 +4,13 @@ Section: Scroll Header Pro
 Author: .bestrag
 Author URI: http://bestrag.net
 Version: 3.0
-Description: NOW WITH PARALLAX. Create a one-page site in a breeze: insert fully customizable Scrolling-ready headings between sections, add scroll menu, stylize and done. Fits on any screen.
+Description:Now with parallax! Create a one-page site in a breeze. Insert fully customizable scroll-ready headings between sections. Just add scroll menu, stylize and done. Fits on any screen.
 Class Name: LUDHeader
 Workswith: main, templates
 Demo: http://bestrag.net/scroll-header-pro
 Cloning: true
 V3: true
+Filter: component
 */
 
 class LUDHeader extends PageLinesSection {
